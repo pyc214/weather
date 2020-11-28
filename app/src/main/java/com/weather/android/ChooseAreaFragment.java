@@ -14,6 +14,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.weather.android.db.City;
@@ -60,8 +62,8 @@ public class ChooseAreaFragment extends Fragment {
 //    当前选中的级别
     private int currentLevel;
 
-
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Uri.Builder savedInstanceState){
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.choose_arca,container,false);
         titleText = (TextView) view.findViewById(R.id.title_text);
         backButton = (Button) view.findViewById(R.id.back_button);
@@ -71,6 +73,7 @@ public class ChooseAreaFragment extends Fragment {
         return view;
     }
 
+    @Override
     public void onActivityCreated(Bundle savedInstanceState){
         super.onActivityCreated(savedInstanceState);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
